@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="th"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;โครงการมรดกชุมชนสร้างสรรค์ | Interactive Application&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Chosen Palette: Warm Earth Tones --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Application Structure Plan: A narrative-driven, multi-section SPA. The flow is designed for user discovery: 1. Hero (Vision), 2. What is Brand Heritage? (Interactive Core Concepts), 3. Why it Matters (Value Proposition with Charts), 4. How to Identify (Interactive Evaluation Framework), 5. Path to Excellence (Action Plan &amp; Tiers), 6. Inspiration (Case Studies), 7. Call to Action. This structure transforms the dense report into an engaging story, prioritizing understanding and action over the original report's linear format. --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Visualization &amp; Content Choices: Report Info -&gt; Goal -&gt; Viz/Method -&gt; Interaction -&gt; Justification. 1. 5 Pillars -&gt; Inform -&gt; Interactive Cards -&gt; Click to reveal -&gt; Breaks down concepts into digestible parts. 2. Business Value -&gt; Compare/Inform -&gt; Bar Chart (Chart.js) &amp; Dynamic Counters -&gt; JS Animation -&gt; Visualizes impact compellingly. 3. Evaluation Criteria -&gt; Organize/Inform -&gt; Donut Chart (Chart.js) &amp; Interactive List -&gt; Click to expand -&gt; Makes the complex framework transparent and explorable. 4. Action Plan -&gt; Organize -&gt; HTML/CSS Step Diagram -&gt; Static visual -&gt; Clarifies the process sequentially. 5. Case Studies -&gt; Inform -&gt; Card Grid -&gt; Click for modal/details -&gt; Organizes examples cleanly. 6. KPIs -&gt; Inform/Compare -&gt; Radar Chart (Chart.js) -&gt; Static visual -&gt; Makes abstract KPIs tangible. All interactions use vanilla JS. --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Sarabun', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #FDFBF8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #4A4A4A;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-link {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: color 0.3s, border-bottom-color 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-link:hover, .nav-link.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #A97C50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-color: #A97C50;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero-bg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://placehold.co/1920x1080/a97c50/fdfbf8?text=Authentic+Craftsmanship');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-flip {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>perspective: 1000px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-flip-inner {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.6s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform-style: preserve-3d;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-flip:hover .card-flip-inner {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: rotateY(180deg);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-front, .card-back {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-backface-visibility: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backface-visibility: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-back {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: rotateY(180deg);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title-underline {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title-underline::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #A97C50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.timeline-item::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: -31px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #D6B593;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #FDFBF8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 10;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.timeline-path {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: -22px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #D6B593;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 350px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(0,0,0,0.6);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #FDFBF8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 10% auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 0.5s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from {opacity: 0; transform: scale(0.9);}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to {opacity: 1; transform: scale(1);}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="antialiased"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Header &amp; Navigation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="container mx-auto px-6 py-3 flex justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-xl font-bold text-[#A97C50]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>มรดกชุมชนสร้างสรรค์</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hidden md:flex space-x-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#vision" class="nav-link"&gt;วิสัยทัศน์&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#concept" class="nav-link"&gt;แนวคิดหลัก&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#framework" class="nav-link"&gt;เกณฑ์การประเมิน&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#action-plan" class="nav-link"&gt;แผนดำเนินงาน&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#cases" class="nav-link"&gt;กรณีศึกษา&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#contact" class="nav-link"&gt;เข้าร่วมโครงการ&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="mobile-menu-button" class="md:hidden focus:outline-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="mobile-menu" class="hidden md:hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#vision" class="block py-2 px-4 text-sm hover:bg-gray-200"&gt;วิสัยทัศน์&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#concept" class="block py-2 px-4 text-sm hover:bg-gray-200"&gt;แนวคิดหลัก&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#framework" class="block py-2 px-4 text-sm hover:bg-gray-200"&gt;เกณฑ์การประเมิน&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#action-plan" class="block py-2 px-4 text-sm hover:bg-gray-200"&gt;แผนดำเนินงาน&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#cases" class="block py-2 px-4 text-sm hover:bg-gray-200"&gt;กรณีศึกษา&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200"&gt;เข้าร่วมโครงการ&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 1: Hero --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="vision" class="hero-bg text-white h-[60vh] md:h-[80vh] flex items-center justify-center text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 tracking-wide"&gt;โครงการมรดกชุมชนสร้างสรรค์&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg md:text-2xl font-light max-w-3xl mx-auto"&gt;แปลงสินทรัพย์ทางวัฒนธรรมให้เป็นพลังขับเคลื่อนการท่องเที่ยวอย่างยั่งยืน สร้างคุณค่าที่แท้จริงจากเรื่องราวและรากเหง้าของชุมชน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 2: What is Brand Heritage --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="concept" class="py-16 md:py-24 bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title-underline"&gt;นิยามของ "แบรนด์มรดก"&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center max-w-3xl mx-auto mb-12 text-lg"&gt;แบรนด์มรดกไม่ใช่แค่เรื่องของความเก่าแก่ แต่คือการบริหารจัดการสินทรัพย์ที่ทรงคุณค่าที่สุด นั่นคือ "เรื่องราว" ที่ผ่านการคัดสรรและหล่อหลอมขึ้นจากประวัติศาสตร์ เพื่อสร้างความแตกต่างและความผูกพันกับผู้บริโภคในปัจจุบันและอนาคต&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 gap-8 items-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-center p-6 border border-gray-200 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-2 text-[#A97C50]"&gt;ประวัติศาสตร์ (History)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;คือบันทึกข้อเท็จจริงของเหตุการณ์ในอดีต เป็นข้อมูลดิบที่บอกว่า "เกิดอะไรขึ้น" ทุกแบรนด์ล้วนมีประวัติศาสตร์&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-center p-6 bg-[#A97C50] text-white rounded-lg shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-semibold mb-2"&gt;มรดก (Heritage)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;คือการคัดสรรและเรียบเรียงเรื่องเล่าจากประวัติศาสตร์อย่างมีกลยุทธ์ เป็นการเลือกเน้นย้ำคุณค่าที่สอดคล้องกับแบรนด์ในปัจจุบัน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-2xl md:text-3xl font-bold text-center mb-10"&gt;5 เสาหลักค้ำจุนมรดกของแบรนด์&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Pillar Cards --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-flip h-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-flip-inner shadow-lg rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-front bg-white border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-4xl mb-2"&gt;🏆&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-center"&gt;ประวัติผลงาน&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-500 mt-2"&gt;(Track Record)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-back bg-[#D6B593] text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-center"&gt;หลักฐานที่พิสูจน์ว่าแบรนด์ได้ทำตามคำมั่นสัญญาและรักษาคุณภาพมาอย่างต่อเนื่อง สร้างความน่าเชื่อถือ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-flip h-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-flip-inner shadow-lg rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-front bg-white border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-4xl mb-2"&gt;⏳&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-center"&gt;ความยาวนาน&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-500 mt-2"&gt;(Longevity)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-back bg-[#D6B593] text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-center"&gt;การดำรงอยู่เป็นเวลานาน เป็นสัญญาณของความมั่นคง ความสามารถในการปรับตัว และความเชี่ยวชาญ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-flip h-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-flip-inner shadow-lg rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-front bg-white border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-4xl mb-2"&gt;💎&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-center"&gt;ค่านิยมหลัก&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-500 mt-2"&gt;(Core Values)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-back bg-[#D6B593] text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-center"&gt;ปรัชญาและหลักการที่แบรนด์ยึดถือเป็นแนวทาง ซึ่งต้องมีความสม่ำเสมอและสะท้อนในการกระทำ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-flip h-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-flip-inner shadow-lg rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-front bg-white border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-4xl mb-2"&gt;⚜️&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-center"&gt;สัญลักษณ์&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-500 mt-2"&gt;(Symbols)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-back bg-[#D6B593] text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-center"&gt;องค์ประกอบที่มองเห็นได้ เช่น โลโก้ บรรจุภัณฑ์ ที่ทำหน้าที่เป็นเครื่องยึดเหนี่ยวเรื่องราวของแบรนด์&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-flip h-64"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-flip-inner shadow-lg rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-front bg-white border border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-4xl mb-2"&gt;🤝&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-center"&gt;การดูแลรักษา&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-500 mt-2"&gt;(Stewardship)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="card-back bg-[#D6B593] text-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-center"&gt;การบริหารจัดการ ปกป้อง และพัฒนาต่อยอดมรดกอย่างมีจิตสำนึก เพื่อให้มรดกยังคงมีชีวิต&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 3: Why it matters --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="value" class="py-16 md:py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title-underline"&gt;ทำไม "มรดก" จึงสำคัญ?&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center max-w-3xl mx-auto mb-12 text-lg"&gt;การลงทุนในมรดกของแบรนด์ไม่ใช่แค่การสร้างภาพลักษณ์ แต่คือการสร้างคุณค่าทางธุรกิจที่จับต้องได้ นำไปสู่ความได้เปรียบในการแข่งขันที่ยั่งยืน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 gap-8 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex-shrink-0 h-12 w-12 rounded-full bg-[#D6B593] text-white flex items-center justify-center text-2xl font-bold"&gt;1&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="ml-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-xl font-semibold"&gt;อำนาจในการตั้งราคาสูง (Premium Pricing)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;มรดกคือเครื่องพิสูจน์คุณภาพและความน่าเชื่อถือ ทำให้ผู้บริโภคยินดีจ่ายในราคาที่สูงกว่าคู่แข่ง&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex-shrink-0 h-12 w-12 rounded-full bg-[#D6B593] text-white flex items-center justify-center text-2xl font-bold"&gt;2&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="ml-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-xl font-semibold"&gt;การมีส่วนร่วมของลูกค้าที่เพิ่มขึ้น (Engagement)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;เรื่องราวที่จริงแท้สร้างความผูกพันทางอารมณ์ นำไปสู่ความภักดีและการบอกต่อที่ทรงพลัง&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex-shrink-0 h-12 w-12 rounded-full bg-[#D6B593] text-white flex items-center justify-center text-2xl font-bold"&gt;3&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="ml-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-xl font-semibold"&gt;ความสามารถในการฟื้นตัวจากวิกฤต (Resilience)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;ความไว้วางใจที่สั่งสมมานาน ทำให้ลูกค้ายังคงสนับสนุนแบรนด์แม้ในยามที่ตลาดผันผวน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="chart-container h-80 md:h-96"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;canvas id="businessValueChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 4: Evaluation Framework --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="framework" class="py-16 md:py-24 bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title-underline"&gt;เกณฑ์การประเมินแบรนด์มรดก&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center max-w-3xl mx-auto mb-12 text-lg"&gt;เราใช้กรอบการประเมินที่โปร่งใสและเป็นระบบ เพื่อคัดเลือกแบรนด์ที่มีศักยภาพอย่างแท้จริง โดยพิจารณาจาก 4 มิติหลักที่ถ่วงน้ำหนักอย่างเหมาะสม&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid lg:grid-cols-3 gap-8 items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="lg:col-span-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-center mb-4"&gt;สัดส่วนคะแนน&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="chart-container h-72 md:h-80"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;canvas id="evaluationDonutChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="lg:col-span-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold mb-4"&gt;เกณฑ์การพิจารณา (คลิกเพื่อดูรายละเอียด)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="criteria-list" class="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Criteria items will be injected here by JS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 5: Action Plan --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="action-plan" class="py-16 md:py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title-underline"&gt;แผนดำเนินงานโครงการ&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center max-w-3xl mx-auto mb-16 text-lg"&gt;โครงการ "มรดกชุมชนสร้างสรรค์" มีแผนการดำเนินงานที่ชัดเจนและเป็นขั้นตอน เพื่อนำไปสู่ความสำเร็จอย่างเป็นรูปธรรม&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 gap-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold mb-8 text-center"&gt;5 ระยะสู่ความสำเร็จ&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative pl-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-path"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item relative mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-[#A97C50]"&gt;1. เปิดตัวและประชาสัมพันธ์&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;จัดงานแถลงข่าว ให้ความรู้ และเชิญชวนผู้ประกอบการเข้าร่วม&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item relative mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-[#A97C50]"&gt;2. รับสมัครและประเมินผล&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;เปิดรับสมัครและคัดเลือกโดยคณะกรรมการผู้ทรงคุณวุฒิ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item relative mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-[#A97C50]"&gt;3. สร้างขีดความสามารถ&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;จัดอบรมเชิงปฏิบัติการด้านการเล่าเรื่อง การตลาดดิจิทัล และ IP&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item relative mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-[#A97C50]"&gt;4. ส่งเสริมการตลาด&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;สร้าง "เส้นทางมรดก" จัดทำแคมเปญ และเชิญสื่อมวลชน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-xl font-semibold text-[#A97C50]"&gt;5. ติดตามและทบทวน&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;วัดผลความสำเร็จ (KPIs) และปรับปรุงโครงการอย่างต่อเนื่อง&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold mb-8 text-center"&gt;3 ระดับการรับรอง&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-xl text-yellow-600"&gt;ระดับที่ 1: แบรนด์มรดกชุมชน (Certified)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;ผ่านเกณฑ์ขั้นต่ำ ได้รับตราสัญลักษณ์และสิทธิ์เข้าร่วมกิจกรรมสนับสนุน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-xl text-gray-500"&gt;ระดับที่ 2: แบรนด์มรดกชุมชนดีเด่น (Distinguished)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;มีคะแนนสูงกว่ามาตรฐาน ได้รับการสนับสนุนด้านการตลาดในระดับที่สูงขึ้น&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-xl text-amber-800"&gt;ระดับที่ 3: แบรนด์มรดกชุมชนต้นแบบ (Icon)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-600"&gt;มีความเป็นเลิศในทุกมิติ ได้รับการยกย่องเป็น "Hall of Fame" และเป็นพี่เลี้ยงให้แบรนด์อื่น&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 6: Case Studies --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="cases" class="py-16 md:py-24 bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title-underline"&gt;แรงบันดาลใจจากความสำเร็จ&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center max-w-3xl mx-auto mb-12 text-lg"&gt;ศึกษาบทเรียนจากแบรนด์มรดกที่ประสบความสำเร็จทั้งในระดับประเทศและสากล เพื่อเป็นแนวทางในการสร้างสรรค์คุณค่า&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="case-studies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Case study cards will be injected here by JS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Section 7: Call to Action --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="contact" class="py-16 md:py-24 bg-[#D6B593]/20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="container mx-auto px-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title-underline"&gt;ร่วมเป็นส่วนหนึ่งของการเดินทาง&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-center max-w-3xl mx-auto mb-8 text-lg"&gt;สมาคมการท่องเที่ยวขอเชิญชวนผู้ประกอบการที่มีเรื่องราวและคุณค่าที่หยั่งรากลึกในชุมชน ร่วมเป็นส่วนหนึ่งของโครงการ "มรดกชุมชนสร้างสรรค์" เพื่อเติบโตและสร้างความยั่งยืนไปพร้อมกัน&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="bg-[#A97C50] text-white font-bold py-3 px-8 rounded-full hover:bg-[#8e6944] transition duration-300 text-lg"&gt;ติดต่อสมาคมฯ เพื่อสมัคร&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mt-16 p-8 bg-white rounded-lg shadow-md max-w-4xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold text-[#A97C50] mb-4"&gt;พิเศษ: โครงการบ่มเพาะมรดกแห่งอนาคต (Future Heritage Incubator)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-700"&gt;เราไม่ได้มองแค่เพียงอดีต แต่ยังมองไปข้างหน้า โครงการนี้เปิดรับแบรนด์รุ่นใหม่ (อายุ 5-15 ปี) ที่มีศักยภาพและเรื่องราวที่แข็งแกร่ง เพื่อร่วมบ่มเพาะและสร้างมรดกสำหรับอนาคตไปพร้อมกัน นี่คือการลงทุนเพื่อปลูกต้นไม้ที่แข็งแรงสำหรับคนรุ่นต่อไป&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-[#4A4A4A] text-white py-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container mx-auto px-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; 2025 โครงการมรดกชุมชนสร้างสรรค์ โดย สมาคมการท่องเที่ยว&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm text-gray-400 mt-2"&gt;Interactive Application designed and developed for community empowerment.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Modal Structure --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="case-study-modal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span id="modal-close" class="absolute top-4 right-6 text-3xl font-bold cursor-pointer text-gray-500 hover:text-black"&gt;&amp;times;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 id="modal-title" class="text-2xl font-bold mb-4 text-[#A97C50]"&gt;&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="modal-text" class="text-gray-700"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">document.addEventListener('DOMContentLoaded', function() {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Mobile Menu Toggle</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const mobileMenuButton = document.getElementById('mobile-menu-button');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const mobileMenu = document.getElementById('mobile-menu');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>mobileMenuButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>mobileMenu.classList.toggle('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Smooth Scrolling for Nav Links</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll('a[href^="#"]').forEach(anchor =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>anchor.addEventListener('click', function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mobileMenu.classList.add('hidden'); // Close mobile menu on click</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelector(this.getAttribute('href')).scrollIntoView({</p>
+<p class="p1"><span class="Apple-converted-space">                </span>behavior: 'smooth'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Active Nav Link on Scroll</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sections = document.querySelectorAll('section');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const navLinks = document.querySelectorAll('.nav-link');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onscroll = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let current = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sections.forEach(section =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const sectionTop = section.offsetTop;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (pageYOffset &gt;= sectionTop - 60) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>current = section.getAttribute('id');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (link.getAttribute('href').includes(current)) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Chart.js Implementations</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 1. Business Value Chart</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const businessValueCtx = document.getElementById('businessValueChart').getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>new Chart(businessValueCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>type: 'bar',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>labels: ['อำนาจในการตั้งราคาสูง', 'การมีส่วนร่วมของลูกค้า', 'ความสามารถในการฟื้นตัว'],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>label: 'ศักยภาพที่เพิ่มขึ้นจาก Brand Heritage',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>data: [25, 7, 15],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>backgroundColor: ['#A97C50', '#D6B593', '#C8A488'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>borderColor: ['#8e6944', '#b59676', '#a7856a'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>borderWidth: 1</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>indexAxis: 'y',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>legend: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>display: false</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tooltip: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>callbacks: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>label: function(context) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>return `${context.label}: เพิ่มขึ้นสูงสุด ${context.raw}%`;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>x: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>beginAtZero: true,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>title: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>display: true,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>text: 'ศักยภาพที่เพิ่มขึ้น (%)'</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 2. Evaluation Donut Chart</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const evaluationDonutCtx = document.getElementById('evaluationDonutChart').getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>new Chart(evaluationDonutCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>type: 'doughnut',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>labels: ['มรดกและความจริงแท้ (40%)', 'คุณภาพและประสบการณ์ (30%)', 'ความยั่งยืนและชุมชน (20%)', 'การตลาดและการสื่อสาร (10%)'],</p>
+<p class="p1"><span class="Apple-converted-space">            </span>datasets: [{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>data: [40, 30, 20, 10],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>backgroundColor: ['#A97C50', '#C8A488', '#D6B593', '#EAE0D5'],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>hoverOffset: 4</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>responsive: true,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>maintainAspectRatio: false,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>legend: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>position: 'bottom',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>labels: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>boxWidth: 15,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>padding: 15</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Evaluation Criteria Interactive List</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const criteriaData = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ domain: '1. มรดกและความจริงแท้', weight: 40, items: [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '1.1 ความยาวนานและประวัติที่ตรวจสอบได้', weight: 10, desc: 'มีระยะเวลาดำเนินกิจการต่อเนื่อง (เช่น &gt; 20 ปี) มีเอกสารหรือหลักฐานอ้างอิงทางประวัติศาสตร์' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '1.2 ความเชื่อมโยงกับวัฒนธรรมท้องถิ่น', weight: 15, desc: 'การใช้วัตถุดิบ สูตร หรือแรงบันดาลใจจากท้องถิ่น สะท้อนวิถีชีวิตของชุมชน' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '1.3 ความเป็นเลิศในงานฝีมือ/กระบวนการ', weight: 10, desc: 'แสดงทักษะฝีมือที่เป็นเอกลักษณ์ กระบวนการผลิตดั้งเดิม หรือความเชี่ยวชาญที่สืบทอดกันมา' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '1.4 การดูแลรักษามรดกและการเล่าเรื่อง', weight: 5, desc: 'มีความพยายามในการเก็บรักษา ปกป้อง และสื่อสารเรื่องราวของแบรนด์ให้เป็นที่รับรู้' }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ domain: '2. คุณภาพและประสบการณ์นักท่องเที่ยว', weight: 30, items: [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '2.1 ความเป็นเลิศของสินค้า/บริการ', weight: 15, desc: 'สินค้าหรือบริการมีคุณภาพสูง สม่ำเสมอ ได้รับการยอมรับหรือมีรีวิวในเชิงบวก' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '2.2 การสร้างประสบการณ์ท่องเที่ยวที่น่าจดจำ', weight: 15, desc: 'สถานประกอบการเป็นมากกว่าการซื้อขาย แต่เป็นแหล่งท่องเที่ยวในตัวเอง สร้างความประทับใจ' }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ domain: '3. ความยั่งยืนและผลกระทบต่อชุมชน', weight: 20, items: [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '3.1 การส่งเสริมเศรษฐกิจท้องถิ่น', weight: 10, desc: 'มีการจ้างงานคนในพื้นที่ จัดซื้อวัตถุดิบจากชุมชน หรือกระจายรายได้สู่ท้องถิ่น' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '3.2 ความรับผิดชอบต่อสิ่งแวดล้อมและสังคม', weight: 10, desc: 'มีแนวปฏิบัติที่สอดคล้องกับหลักการท่องเที่ยวอย่างยั่งยืน' }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ domain: '4. ศักยภาพทางการตลาดและการสื่อสาร', weight: 10, items: [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '4.1 ความแข็งแกร่งของอัตลักษณ์แบรนด์', weight: 5, desc: 'มีสัญลักษณ์ ค่านิยม และบุคลิกของแบรนด์ที่ชัดเจนและเป็นที่จดจำ' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ name: '4.2 ศักยภาพในการส่งเสริมสู่สาธารณะ', weight: 5, desc: 'เรื่องราวของแบรนด์มีความน่าสนใจ มีศักยภาพในการดึงดูดสื่อและนักท่องเที่ยว' }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>]}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const criteriaListContainer = document.getElementById('criteria-list');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>criteriaData.forEach(group =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const groupHeader = document.createElement('h4');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>groupHeader.className = 'text-lg font-semibold text-[#A97C50] mt-6 mb-2';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>groupHeader.textContent = `${group.domain} (${group.weight}%)`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>criteriaListContainer.appendChild(groupHeader);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>group.items.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const itemDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>itemDiv.className = 'border border-gray-200 rounded-lg';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const button = document.createElement('button');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>button.className = 'w-full text-left p-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>button.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="font-medium"&gt;${item.name} (${item.weight}%)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const content = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content.className = 'p-4 border-t border-gray-200 bg-white hidden';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content.textContent = item.desc;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>button.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>content.classList.toggle('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.querySelector('svg').classList.toggle('rotate-180');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>itemDiv.appendChild(button);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>itemDiv.appendChild(content);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>criteriaListContainer.appendChild(itemDiv);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Case Studies and Modal Logic</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const caseStudiesData = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ title: 'The Jim Thompson House', text: 'ต้นแบบที่สมบูรณ์แบบของการแปลงมรดกให้เป็นแหล่งท่องเที่ยวชั้นนำ บทเรียน: การผสมผสานเรื่องราวผู้ก่อตั้งที่น่าติดตาม, การอนุรักษ์สถาปัตยกรรม, การเป็นศูนย์รวมศิลปะ, และการบูรณาการกับธุรกิจค้าปลีกและร้านอาหารอย่างครบวงจร สามารถสร้างจุดหมายปลายทางที่ทรงพลังได้' },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ title: 'ฟาร์มโชคชัย', text: 'ตัวอย่างชั้นยอดของการเปลี่ยนธุรกิจเกษตรกรรมให้เป็นแหล่งท่องเที่ยวผ่าน "การตลาดเชิงประสบการณ์" บทเรียน: การสร้างแบรนด์บุคคล (Personal Branding) ที่แข็งแกร่ง และการสร้างกิจกรรมที่ให้ผู้มาเยือนได้สัมผัสวิถีชีวิตจริง สามารถกลายเป็นเครื่องมือการตลาดที่ทรงพลังที่สุด ดึงดูดนักท่องเที่ยวโดยไม่ต้องพึ่งพาโฆษณา' },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ title: 'Stella Artois', text: 'แคมเปญการตลาดเชิงมรดกที่สร้างสรรค์และขับเคลื่อนด้วยข้อมูล บทเรียน: การใช้ข้อมูลทางประวัติศาสตร์ (เช่น ภาพวาดเก่าแก่) เพื่อพิสูจน์การมีอยู่ของแบรนด์อย่างยาวนาน สามารถตอกย้ำสถานะพรีเมียมได้อย่างชาญฉลาดและน่าสนใจ' },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ title: 'Neemrana Hotels, India', text: 'การนำมรดกทางสถาปัตยกรรมมาเป็นแกนหลักของธุรกิจ บทเรียน: การบูรณะสถานที่เก่าแก่ที่ทรุดโทรมให้กลายเป็นโรงแรมมรดก สามารถสร้างตลาดเฉพาะกลุ่ม (Niche Market) ที่ไม่สามารถลอกเลียนแบบได้ และมอบประสบการณ์ที่แตกต่างอย่างสิ้นเชิง' },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ title: 'แบรนด์ในชีวิตประจำวัน (Glico, Pepsi)', text: 'กลยุทธ์มรดกสำหรับสินค้าอุปโภคบริโภค บทเรียน: การนำบรรจุภัณฑ์ย้อนยุค (Retro Packaging) กลับมาใช้ในวาระพิเศษ เป็นวิธีที่ง่ายแต่ทรงพลังในการกระตุ้นความทรงจำ สร้างความผูกพันทางอารมณ์กับผู้บริโภคหลายรุ่น และตอกย้ำการดำรงอยู่อันยาวนานของแบรนด์' },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ title: 'Meghalaya Tourism, India', text: 'การสร้างแบรนด์ให้จุดหมายปลายทางผ่านเทศกาลวัฒนธรรม บทเรียน: กิจกรรมมรดกที่โดดเด่นเพียงหนึ่งอย่าง หากได้รับการตลาดอย่างดี สามารถยกระดับภาพลักษณ์ของทั้งภูมิภาค และบูรณาการวัฒนธรรมท้องถิ่นเข้ากับการท่องเที่ยวสมัยใหม่ได้อย่างลงตัว' }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const grid = document.getElementById('case-studies-grid');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const modal = document.getElementById('case-study-modal');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const modalTitle = document.getElementById('modal-title');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const modalText = document.getElementById('modal-text');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const closeModal = document.getElementById('modal-close');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>caseStudiesData.forEach(study =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.className = 'bg-white p-6 rounded-lg shadow-md border border-gray-100 flex flex-col justify-between';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-xl font-bold text-[#A97C50] mb-2"&gt;${study.title}&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;${study.text.substring(0, 100)}...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="mt-4 self-start text-[#A97C50] font-semibold hover:underline"&gt;เรียนรู้เพิ่มเติม →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.querySelector('button').addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalTitle.textContent = study.title;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modalText.textContent = study.text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>closeModal.addEventListener('click', () =&gt; modal.style.display = 'none');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('click', (event) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (event.target == modal) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>modal.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1">});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
